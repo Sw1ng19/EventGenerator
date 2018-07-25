@@ -1,0 +1,11 @@
+FROM debian:jessie
+
+MAINTAINER lishiyun19@163.com
+
+# install dependency
+RUN apt-get install unzip python-dateutil openjdk-8-jdk
+
+# install jmeter
+ADD http://stg-repo.splunk.com/artifactory/Solutions/Performance/jmeter.zip /root/jmeter.zip
+RUN cd root && unzip jmeter.zip -d /opt
+RUN rm /root/jmeter.zip 
